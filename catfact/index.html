@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catfact</title>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        var apiUrl = "https://catfact.ninja/fact"; // replace with your API URL
+        var outputDiv = document.getElementById("output");
+
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    var value = getProperty(data, "fact"); // replace with json param
+                    outputDiv.innerHTML = value;
+                })
+                .catch(error => console.error(error));
+        });
+
+        function getProperty(data, property) {
+            if (data.hasOwnProperty(property)) {
+                return data[property];
+            } else {
+                return "Property not found";
+            }
+        }
+    </script>
+
+</body>
+</html>
