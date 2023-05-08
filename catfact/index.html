@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Catfact</title>
 </head>
 <body>
     <div id="output"></div>
@@ -16,7 +15,7 @@
                 .then(data => {
                     console.log(data);
                     var value = getProperty(data, "fact"); // replace with json param
-                    outputDiv.innerHTML = value;
+                    document.body.innerHTML = value;
                 })
                 .catch(error => console.error(error));
         });
